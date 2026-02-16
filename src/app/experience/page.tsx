@@ -1,5 +1,7 @@
 "use client";
 
+export const runtime = 'edge';
+
 import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/section-header";
 import { ExperienceItem } from "@/components/experience-item";
