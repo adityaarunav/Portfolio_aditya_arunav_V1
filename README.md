@@ -67,6 +67,33 @@ Update the following files to personalize your portfolio:
 - `src/app/projects/page.tsx` - Project listings
 - `src/app/experience/page.tsx` - Work experience entries
 
+## Deploy on Cloudflare Pages
+
+This project is configured for Cloudflare Pages deployment with Edge Runtime support.
+
+### Cloudflare Dashboard Configuration
+
+1. **Build Settings**:
+   - Go to **Workers & Pages** > Your Project > **Settings** > **Builds & deployments**
+   - Click **Edit configurations**
+   - **Build command**: `npm run pages:build`
+   - **Build output directory**: `.vercel/output/static`
+
+2. **Environment Variables**:
+   - Go to **Settings** > **Environment Variables**
+   - Set `NODE_VERSION` to `20` or `22`
+
+3. **Compatibility Flags**:
+   - Go to **Settings** > **Functions** > **Compatibility Flags**
+   - Add `nodejs_compat` for both **Production** and **Preview**
+
+### Build Scripts
+
+- `npm run build` - Standard Next.js build (for local development/testing)
+- `npm run pages:build` - Cloudflare Pages build (uses `@cloudflare/next-on-pages`)
+
+**Important**: The `pages:build` script is separate to prevent recursive build errors. Cloudflare Pages should use `npm run pages:build` as the build command, not `npm run build`.
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
