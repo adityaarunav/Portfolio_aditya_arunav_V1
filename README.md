@@ -78,7 +78,7 @@ This project is configured for Cloudflare Pages deployment with Edge Runtime sup
    - Click **Edit configurations**
    - **Build command**: `npm run pages:build`
    - **Build output directory**: `.vercel/output/static`
-   - **Deploy command**: Leave this **EMPTY** or remove it entirely (Cloudflare Pages will automatically deploy from the output directory)
+   - **Deploy command**: `npx wrangler pages deploy .vercel/output/static`
 
 2. **Environment Variables**:
    - Go to **Settings** > **Environment Variables**

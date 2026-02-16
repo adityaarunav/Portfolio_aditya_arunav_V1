@@ -1,8 +1,6 @@
 {
   "name": "portfolio-site",
   "compatibility_date": "2026-02-16",
-  "assets": {
-    "directory": ".vercel/output/static"
-  },
-  "pages_build_output_dir": ".vercel/output/static"
+  "pages_build_output_dir": ".vercel/output/static",
+  "compatibility_flags": ["nodejs_compat"]
 }
