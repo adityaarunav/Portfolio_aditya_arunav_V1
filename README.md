@@ -79,11 +79,15 @@ This project is configured for Cloudflare Pages deployment with Edge Runtime sup
    - **Build command**: `npm run pages:build`
    - **Build output directory**: `.vercel/output/static`
    - **Deploy command**: 
-     - **Option 1 (Recommended)**: Leave empty or use `echo "Deployment handled by Cloudflare Pages"`
-     - **Option 2**: If you must use wrangler, first create the project in Cloudflare Dashboard, then use:
-       `npx wrangler pages deploy .vercel/output/static --project-name=YOUR_ACTUAL_PROJECT_NAME`
+     - **Option 1 (Recommended)**: Use `echo "Deployment handled by Cloudflare Pages"` or `true`
+     - **Option 2**: If you must use wrangler deploy, ensure the project name in `wrangler.jsonc` matches your Cloudflare Pages project name exactly
    
-   **Important**: Cloudflare Pages automatically deploys from the build output directory when using Git integration. If the deploy command field is mandatory, use a no-op command (`echo` or `true`) to avoid errors. The project name in `wrangler.jsonc` is not used for Pages deployments.
+   **Finding your project name**: 
+   - Go to Cloudflare Dashboard → **Workers & Pages** → Your project
+   - The project name is shown at the top of the page
+   - Update `wrangler.jsonc` with the exact project name (case-sensitive)
+   
+   **Important**: Cloudflare Pages automatically deploys from the build output directory when using Git integration. The deploy command field may be mandatory, but you can use a no-op command (`echo` or `true`) to satisfy it. The `name` field in `wrangler.jsonc` must match your actual Cloudflare Pages project name if you're using wrangler deploy.
 
 2. **Environment Variables**:
    - Go to **Settings** > **Environment Variables**
