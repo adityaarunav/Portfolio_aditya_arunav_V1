@@ -78,7 +78,9 @@ This project is configured for Cloudflare Pages deployment with Edge Runtime sup
    - Click **Edit configurations**
    - **Build command**: `npm run pages:build`
    - **Build output directory**: `.vercel/output/static`
-   - **Deploy command**: `npx wrangler pages deploy .vercel/output/static`
+   - **Deploy command**: `npx wrangler pages deploy .vercel/output/static --project-name=Portfolio_aditya_arunav_V1`
+   
+   **Note**: Replace `Portfolio_aditya_arunav_V1` with your actual Cloudflare Pages project name if different.
 
 2. **Environment Variables**:
    - Go to **Settings** > **Environment Variables**
@@ -88,7 +90,7 @@ This project is configured for Cloudflare Pages deployment with Edge Runtime sup
    - Go to **Settings** > **Functions** > **Compatibility Flags**
    - Add `nodejs_compat` for both **Production** and **Preview**
 
-**Important**: If you see a "Deploy command" field in your Cloudflare Pages settings, make sure it's empty. Cloudflare Pages automatically deploys from the build output directory, and having `npx wrangler deploy` in the deploy command will cause errors.
+**Important**: The deploy command must use `wrangler pages deploy` (not `wrangler deploy`) and include the `--project-name` flag with your Cloudflare Pages project name.
 
 ### Build Scripts
 
